@@ -1,0 +1,46 @@
+#Task 3
+#This the script for the task 3.
+
+
+#How to check Apache web server access logs.
+#Access.log is basically a text file.
+
+#The content will be inside the html folder.
+cd /var/www/html.
+#Index.html is the default page for the Apache2 webserver.
+
+#To create an inventory.html file if not found we can use the script mentioned below.
+#!/bin/bash
+file="/./var/www/html/inventory.html"
+if [ ! -f "$file" ]
+then
+    echo "$0: File '${file}' not found."
+else
+    echo 'Add inventory.html' 
+fi
+
+
+
+
+
+
+#Command to create a cron job every day at 11:00 by a root user is mentioned below.
+00 11 * * * /home/backups/scripts/log_backup.sh
+#Also we can use the command mentioned below to schedule a cron job daily.
+ls -la /etc/cron.daily
+
+#To check if a cron job is scheduled or not we can use the command mentioned below.
+sudo grep –a “Cron.sh” /var/log/syslog
+or
+grep -ic cron /var/log/* | grep -v :0
+
+
+
+
+
+
+
+
+
+
+
